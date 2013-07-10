@@ -1,6 +1,3 @@
-/**
- * 
- */
 package todo.tests;
 
 import java.util.Iterator;
