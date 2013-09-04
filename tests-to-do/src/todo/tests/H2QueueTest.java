@@ -7,7 +7,7 @@ import javax.xml.xpath.XPathExpressionException;
 
 import org.h2.jdbcx.JdbcDataSource;
 
-import blueprint.sdk.util.jdbc.H2Queue;
+import blueprint.sdk.util.queue.H2Queue;
 
 public class H2QueueTest {
 	public static void main(String[] args) throws XPathExpressionException, InstantiationException,
