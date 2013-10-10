@@ -49,7 +49,7 @@ public class H2QueueTest {
 					public void run() {
 						for (int i = 0; i < 2000; i++) {
 							try {
-								queue.pop();
+								queue.take();
 							} catch (Exception e) {
 								e.printStackTrace();
 							}
