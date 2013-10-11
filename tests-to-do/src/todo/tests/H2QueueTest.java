@@ -21,7 +21,7 @@ public class H2QueueTest {
 
 		final int threads = 2;
 
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1000; i++) {
 			final CountDownLatch latch = new CountDownLatch(threads * 2);
 			long start = System.currentTimeMillis();
 
