@@ -7,7 +7,9 @@ import java.util.concurrent.CountDownLatch;
 public class ConcurrentFileIOTest extends Thread {
 	public static CountDownLatch latch = new CountDownLatch(4);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		FileOutputStream fos = new FileOutputStream("test.txt");
+
 		ConcurrentFileIOTest t1 = new ConcurrentFileIOTest();
 		ConcurrentFileIOTest t2 = new ConcurrentFileIOTest();
 		ConcurrentFileIOTest t3 = new ConcurrentFileIOTest();
@@ -23,6 +25,8 @@ public class ConcurrentFileIOTest extends Thread {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		
+		fos.close();
 	}
 
 	private static String base = "1234567890";
