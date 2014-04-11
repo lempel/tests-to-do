@@ -15,7 +15,6 @@ public class ClassName {
 class ClassA extends Thread {
 	public ClassA() {
 		super();
-		
 		setName(getClass().getSimpleName() + "#" + hashCode());
 	}
 }
@@ -23,7 +22,6 @@ class ClassA extends Thread {
 class ClassB extends ClassA {
 	public ClassB() {
 		super();
-		
 		setName(getClass().getSimpleName() + "#" + hashCode());
 	}
 }
