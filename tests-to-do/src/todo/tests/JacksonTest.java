@@ -9,10 +9,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JacksonTest {
 	public static void main(String[] args) {
 		int items = 10000;
-		int repeat = 1000;
+		int repeat = 100;
 
 		ObjectMapper mapper = new ObjectMapper();
-		Map<Integer, String> map = new HashMap<Integer, String>();
+		Map<Integer, Object> map = new HashMap<Integer, Object>();
 		String message = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
 
 		long start = System.currentTimeMillis();
@@ -24,7 +24,7 @@ public class JacksonTest {
 			// String json = "";
 			try {
 				// json = mapper.writeValueAsString(map);
-				mapper.writeValue(new File("e:\\json.txt"), map);
+				mapper.writeValue(new File("json.txt"), map);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -33,7 +33,7 @@ public class JacksonTest {
 				@SuppressWarnings("rawtypes")
 				HashMap newMap = null;
 				// newMap = mapper.readValue(json, HashMap.class);
-				newMap = mapper.readValue(new File("e:\\json.txt"), HashMap.class);
+				newMap = mapper.readValue(new File("json.txt"), HashMap.class);
 				if (newMap.size() != map.size()) {
 					throw new RuntimeException("Can't read properly");
 				}
