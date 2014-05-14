@@ -56,7 +56,7 @@ public class CachedFileSystemTest extends CachedFileSystem {
 	}
 
 	static boolean verbose = true;
-	static PrintStream out;
+	static PrintStream out = System.out;
 
 	class TestThread extends Thread {
 		private static final String PATH1 = "e:\\10mb.txt";
