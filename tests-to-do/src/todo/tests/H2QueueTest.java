@@ -66,6 +66,8 @@ public class H2QueueTest {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
+			queue.clear();
 
 			long elapsed = System.currentTimeMillis() - start;
 			System.out.println(i + " : " + elapsed + " msec => " + (elapsed / 2000) + " msec/item");
