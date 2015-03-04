@@ -5,53 +5,52 @@ import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 public class ConcurrentFileIOTest extends Thread {
-	public static CountDownLatch latch = new CountDownLatch(4);
+    private static final CountDownLatch latch = new CountDownLatch(4);
+    private final String my;
 
-	public static void main(String[] args) throws IOException {
-		FileOutputStream fos = new FileOutputStream("test.txt");
+    private ConcurrentFileIOTest() {
+        StringBuilder bld = new StringBuilder();
+        bld.append(hashCode()).append("     ");
+        for (int i = 0; i < 500; i++) {
+            String base = "1234567890";
+            bld.append(base);
+        }
+        my = bld.toString();
+    }
 
-		ConcurrentFileIOTest t1 = new ConcurrentFileIOTest();
-		ConcurrentFileIOTest t2 = new ConcurrentFileIOTest();
-		ConcurrentFileIOTest t3 = new ConcurrentFileIOTest();
-		ConcurrentFileIOTest t4 = new ConcurrentFileIOTest();
+    public static void main(String[] args) throws IOException {
+        FileOutputStream fos = new FileOutputStream("test.txt");
 
-		t1.start();
-		t2.start();
-		t3.start();
-		t4.start();
+        ConcurrentFileIOTest t1 = new ConcurrentFileIOTest();
+        ConcurrentFileIOTest t2 = new ConcurrentFileIOTest();
+        ConcurrentFileIOTest t3 = new ConcurrentFileIOTest();
+        ConcurrentFileIOTest t4 = new ConcurrentFileIOTest();
 
-		try {
-			latch.await();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		fos.close();
-	}
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
 
-	private static String base = "1234567890";
-	private String my;
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-	public ConcurrentFileIOTest() {
-		StringBuilder bld = new StringBuilder();
-		bld.append(hashCode()).append("     ");
-		for (int i = 0; i < 500; i++) {
-			bld.append(base);
-		}
-		my = bld.toString();
-	}
+        fos.close();
+    }
 
-	public void run() {
-		for (int i = 0; i < 200; i++) {
-			try {
-				FileOutputStream fos = new FileOutputStream("test.txt");
-				fos.write(my.getBytes());
-				fos.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+    public void run() {
+        for (int i = 0; i < 200; i++) {
+            try {
+                FileOutputStream fos = new FileOutputStream("test.txt");
+                fos.write(my.getBytes());
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
-		latch.countDown();
-	}
+        latch.countDown();
+    }
 }

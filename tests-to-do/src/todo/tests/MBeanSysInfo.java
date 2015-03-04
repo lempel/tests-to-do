@@ -5,24 +5,25 @@ import java.lang.management.RuntimeMXBean;
 import java.util.StringTokenizer;
 
 public class MBeanSysInfo {
-	public static void main(String[] args) {
-		RuntimeMXBean rm = ManagementFactory.getRuntimeMXBean();
+    @SuppressWarnings("EmptyCatchBlock")
+    public static void main(String[] args) {
+        RuntimeMXBean rm = ManagementFactory.getRuntimeMXBean();
 
-		String name = rm.getName();
-		System.out.println(name);
+        String name = rm.getName();
+        System.out.println(name);
 
-		System.out.println("--------------------------------------");
+        System.out.println("--------------------------------------");
 
-		StringTokenizer stk = new StringTokenizer(name, "@.;:");
-		while (stk.hasMoreTokens()) {
-			System.out.println(stk.nextToken());
-		}
+        StringTokenizer stk = new StringTokenizer(name, "@.;:");
+        while (stk.hasMoreTokens()) {
+            System.out.println(stk.nextToken());
+        }
 
-		System.out.println("--------------------------------------");
+        System.out.println("--------------------------------------");
 
-		try {
-			Thread.sleep(100000);
-		} catch (InterruptedException e) {
-		}
-	}
+        try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+        }
+    }
 }
