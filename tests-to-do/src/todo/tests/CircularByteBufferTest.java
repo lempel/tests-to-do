@@ -25,26 +25,49 @@ public class CircularByteBufferTest {
 
         cbb.push("12345".getBytes());
         cbb.push("67890".getBytes());
+        // 1234567890
         LOGGER.println(new String(cbb.pop()));
+        LOGGER.println("");
 
         cbb.push("1234567890".getBytes());
         cbb.push("___".getBytes());
+        // 4567890___
         LOGGER.println(new String(cbb.pop()));
+        LOGGER.println("");
 
         cbb.push("1234567890".getBytes());
         cbb.push("___123".getBytes(), 0, 3);
+        // 4567890___
         LOGGER.println(new String(cbb.pop()));
+        LOGGER.println("");
 
         cbb.push("1234567890".getBytes());
         cbb.resize(15);
         cbb.push("_____".getBytes());
+        // 1234567890_____
         LOGGER.println(new String(cbb.pop()));
+        LOGGER.println("");
 
         cbb.push("1234567890abcdefghijklmnopqrstuvwxyz".getBytes());
+        // lmnopqrstuvwxyz
         LOGGER.println(new String(cbb.pop()));
+        LOGGER.println("");
 
         cbb.push("1234567890abcde".getBytes());
         cbb.push("fghijklmnopqrstuvwxyz!@#$%^&*()".getBytes(), 0, 21);
+        // lmnopqrstuvwxyz
         LOGGER.println(new String(cbb.pop()));
+        LOGGER.println("");
+
+        cbb = new CircularByteBuffer(1, true, false);
+        cbb.push("1".getBytes());
+        cbb.push("2".getBytes());
+        cbb.push("3".getBytes());
+        cbb.push("4".getBytes());
+        cbb.push("5".getBytes());
+        cbb.push("67890!#$".getBytes());
+        // 1234567890!#$
+        LOGGER.println(new String(cbb.pop()));
+        LOGGER.println("");
     }
 }
