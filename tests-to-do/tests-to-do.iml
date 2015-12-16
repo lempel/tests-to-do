@@ -42,28 +42,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="jackson-core-2.3.3.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../blueprint-sdk/blueprint-sdk/lib/jackson-core-2.3.3.jar!/" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://$MODULE_DIR$/../../blueprint-sdk/blueprint-sdk/lib/jackson-core-2.3.3-javadoc.jar!/" />
-        </JAVADOC>
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="jackson-databind-2.3.3.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../blueprint-sdk/blueprint-sdk/lib/jackson-databind-2.3.3.jar!/" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://$MODULE_DIR$/../../blueprint-sdk/blueprint-sdk/lib/jackson-databind-2.3.3-javadoc.jar!/" />
-        </JAVADOC>
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="log4j-1.2.17.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../../blueprint-sdk/blueprint-sdk/lib/log4j-1.2.17.jar!/" />
@@ -85,6 +63,18 @@
       <library name="slf4j-log4j12-1.7.12.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../../blueprint-sdk/blueprint-sdk/lib/slf4j-log4j12-1.7.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="jackson-databind-2.6.3" level="project" />
+    <orderEntry type="library" name="jackson-core-2.6.3" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.6.3" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../blueprint-sdk/blueprint-sdk/lib/jackson-databind-2.6.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
