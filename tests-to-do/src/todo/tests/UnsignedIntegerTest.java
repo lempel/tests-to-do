@@ -44,5 +44,23 @@ public class UnsignedIntegerTest {
         System.out.println("longValue(unsigned big) = " + UnsignedInteger.longValue(big, false));
 
         System.out.println("longValue(unsigned little) = 0x" + Long.toHexString(UnsignedInteger.longValue(little, true)));
+        System.out.println();
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        UnsignedInteger uint = new UnsignedInteger(new byte[]{(byte) 0xFF, (byte) 0x10, (byte) 0x20, (byte) 0x30}, true);
+        little = uint.toByteArray(true);
+        System.out.print("toByteArray(true) = {");
+        for (int i = 0; i < little.length; i++) {
+            System.out.print(" 0x" + Integer.toHexString(Byte.toUnsignedInt(little[i])));
+        }
+        System.out.println(" }");
+
+        little = uint.toByteArray(false);
+        System.out.print("toByteArray(false) = {");
+        for (int i = 0; i < little.length; i++) {
+            System.out.print(" 0x" + Integer.toHexString(Byte.toUnsignedInt(little[i])));
+        }
+        System.out.println(" }");
     }
 }
